@@ -1,71 +1,43 @@
 package org.example;
-
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
-class Usuario {
-    String nome;
-    List<Postagem> postagens;
+// Classe para gerenciar os usuários e as interações na rede social
+class Gerenciador {
+    // Atributo para armazenar os usuários cadastrados na rede social
+    private List<Usuario> usuarios;
 
-    public Usuario(String nome) {
-        this.nome = nome;
-        this.postagens = new ArrayList<>();
+    // Construtor do gerenciador
+    public Gerenciador() {
+        this.usuarios = new ArrayList<>(); // Inicializa a lista de usuários vazia
     }
 
-    void postar(String mensagem) {
-        this.postagens.add(new Postagem(this, mensagem));
-    }
-}
-
-class Postagem {
-    Usuario autor;
-    String mensagem;
-    List<Comentario> comentarios;
-    int curtidas;
-
-    public Postagem(Usuario autor, String mensagem) {
-        this.autor = autor;
-        this.mensagem = mensagem;
-        this.comentarios = new ArrayList<>();
-        this.curtidas = 0;
+    // Método para cadastrar um novo usuário na rede social
+    public void cadastrarUsuario(String nome, String email, String senha) {
+        Usuario usuario = new Usuario(nome, email, senha); // Cria um novo usuário com os dados informados
+        this.usuarios.add(usuario); // Adiciona o usuário à lista de usuários cadastrados
+        System.out.println("Usuário " + nome + " cadastrado com sucesso!"); // Imprime uma mensagem de confirmação
     }
 
-    void curtir() {
-        this.curtidas++;
-    }
-
-    void comentar(Usuario usuario, String mensagem) {
-        this.comentarios.add(new Comentario(usuario, mensagem));
-    }
-}
-
-class Comentario {
-    Usuario autor;
-    String mensagem;
-
-    public Comentario(Usuario autor, String mensagem) {
-        this.autor = autor;
-        this.mensagem = mensagem;
-    }
-}
-
-class GerenciadorUsuarios {
-    List<Usuario> usuarios;
-
-    public GerenciadorUsuarios() {
-        this.usuarios = new ArrayList<>();
-    }
-
-    void adicionarUsuario(String nome) {
-        this.usuarios.add(new Usuario(nome));
-    }
-
-    Usuario selecionarUsuario(String nome) {
-        for (Usuario usuario : usuarios) {
-            if (usuario.nome.equals(nome)) {
-                return usuario;
+    // Método para buscar um usuário na rede social pelo nome
+    public Usuario buscarUsuario(String nome) {
+        for (Usuario usuario : this.usuarios) { // Percorre a lista de usuários cadastrados
+            if (usuario.getNome().equals(nome)) { // Verifica se o nome do usuário é igual ao nome informado
+                return usuario; // Retorna o usuário encontrado
             }
         }
-        return null;
+        return null; // Retorna null se não encontrar nenhum usuário com o nome informado
     }
+
+    // Método para autenticar um usuário na rede social pelo email e senha
+    public Usuario autenticarUsuario(String email, String senha) {
+        for (Usuario usuario : this.usuarios) { // Percorre a lista de usuários cadastrados
+            if (usuario.getEmail().equals(email) && usuario.getSenha().equals(senha)) { // Verifica se o email e a senha do usuário são iguais aos informados
+                return usuario; // Retorna o usuário autenticado
+            }
+        }
+        return null; // Retorna null se não encontrar nenhum usuário com o email e senha informados
+    }
+
 }
