@@ -18,15 +18,9 @@ public class Main {
         Usuario luizinho = gerenciador.buscarUsuario("Luizinho"); // Busca o usuário Luizinho na rede social
         Usuario huguinho = gerenciador.buscarUsuario("Huguinho"); // Busca o usuário Huguinho na rede social
 
-        zezinho.adicionarAmigo(luizinho); // Zezinho adiciona Luizinho como amigo
-        zezinho.adicionarAmigo(huguinho); // Zezinho adiciona Huguinho como amigo
-        luizinho.adicionarAmigo(huguinho); // Luizinho adiciona Huguinho como amigo
 
-        List<Usuario> marcados = new ArrayList<>(); // Cria uma lista de usuários marcados na postagem
-        marcados.add(luizinho); // Adiciona Luizinho à lista de marcados
-        marcados.add(huguinho); // Adiciona Huguinho à lista de marcados
 
-        zezinho.fazerPostagem("Olá, amigos! Estou testando a rede social textual simples em Java!", marcados); // Zezinho faz uma postagem marcando Luizinho e Huguinho
+        zezinho.fazerPostagem("Olá, amigos! Estou testando a rede social textual simples em Java!"); // Zezinho faz uma postagem marcando Luizinho e Huguinho
 
         Postagem postagem = zezinho.getPostagens().get(0); // Obtém a primeira postagem de Zezinho
 
@@ -42,10 +36,8 @@ public class Main {
         System.out.println("Autor da postagem: " + postagem.getAutor().getNome()); // Imprime o nome do autor da postagem
         System.out.println("Texto da postagem: " + postagem.getTexto()); // Imprime o texto da postagem
         System.out.println("Usuários marcados na postagem: "); // Imprime os usuários marcados na postagem
-        for (Usuario marcado : postagem.getMarcados()) { // Percorre a lista de usuários marcados na postagem
-            System.out.println(marcado.getNome()); // Imprime o nome do usuário marcado
-        }
-        System.out.println("Número de curtidas na postagem: " + postagem.getCurtidas().size()); // Imprime o número de curtidas na postagem
+
+        System.out.println("Número de curtidas na postagem: " + postagem.getCurtidas()); // Imprime o número de curtidas na postagem
         System.out.println("Comentários da postagem: "); // Imprime os comentários da postagem
         for (Comentario comentario : postagem.getComentarios()) { // Percorre a lista de comentários da postagem
             System.out.println(comentario.getAutor().getNome() + ": " + comentario.getTexto()); // Imprime o nome do autor e o texto do comentário
