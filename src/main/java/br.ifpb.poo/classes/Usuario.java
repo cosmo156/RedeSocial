@@ -15,7 +15,7 @@ class Usuario {
         return this.nome;
     }
 
-    void postar(String mensagem) {
+    public void postar(String mensagem) {
         this.postagens.add(new Postagem(this, mensagem));
     }
 
