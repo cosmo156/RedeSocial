@@ -1,4 +1,4 @@
 # RedeSocial
 
-* Rede Social Simples
+* Rede Social textual simples
 * Mini projeto de POO
