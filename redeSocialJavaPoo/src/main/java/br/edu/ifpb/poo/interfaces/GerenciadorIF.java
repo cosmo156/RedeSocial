@@ -1,10 +1,12 @@
 package br.edu.ifpb.poo.interfaces;
 
 import br.edu.ifpb.poo.classes.Usuario;
+import java.util.List;
 
 public interface GerenciadorIF {
-    void cadastrarUsuario();
-    Usuario buscarUsuario();
+    void cadastrarUsuario(String nome, String senha);
+    Usuario logarUsuario(String nome, String senha);
+    Usuario getUsuario(String nome);
+    List<Usuario> getUsuarios();
 
-    Usuario autenticarUsuario();
 }

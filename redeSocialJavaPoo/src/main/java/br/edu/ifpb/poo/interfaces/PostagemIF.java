@@ -1,9 +1,17 @@
 package br.edu.ifpb.poo.interfaces;
 
+import br.edu.ifpb.poo.classes.Comentario;
+
+import java.util.List;
+
 public interface PostagemIF {
 
-    void curtir();
 
+    String getTexto();
+    int getCurtidas();
+    void curtir();
     void removerCurtida();
+    List<Comentario> getComentarios();
+    void adicionarComentario(String comentario);
 
 }
