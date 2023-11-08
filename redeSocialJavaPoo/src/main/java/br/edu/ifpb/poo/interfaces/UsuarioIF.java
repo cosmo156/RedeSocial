@@ -1,6 +1,6 @@
 package br.edu.ifpb.poo.interfaces;
 
-import br.edu.ifpb.poo.classes.Postagem;
+import br.edu.ifpb.poo.domain.Postagem;
 
 import java.util.List;
 

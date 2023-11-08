@@ -1,6 +1,6 @@
 package br.edu.ifpb.poo.interfaces;
 
-import br.edu.ifpb.poo.classes.Comentario;
+import br.edu.ifpb.poo.domain.Comentario;
 
 import java.util.List;
 
