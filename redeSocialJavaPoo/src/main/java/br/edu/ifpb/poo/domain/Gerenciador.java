@@ -4,34 +4,30 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-// Classe para gerenciar os usuários e as interações na rede social
+
 public class Gerenciador implements Serializable {
-    // Atributo para armazenar os usuários cadastrados na rede social
+
     private List<Usuario> usuarios;
 
-    // Construtor do gerenciador
-
     public Gerenciador() {
-        this.usuarios = new ArrayList<>(); // Inicializa a lista de usuários vazia
+        this.usuarios = new ArrayList<>();
     }
 
-    // Método para cadastrar um novo usuário na rede social
     public void cadastrarUsuario(String nome, String senha) {
-        Usuario usuario = new Usuario(nome, senha); // Cria um novo usuário com os dados informados
-        this.usuarios.add(usuario); // Adiciona o usuário à lista de usuários cadastrados
-        System.out.println("Usuário " + nome + " cadastrado com sucesso!"); // Imprime uma mensagem de confirmação
+        Usuario usuario = new Usuario(nome, senha);
+        this.usuarios.add(usuario);
+        System.out.println("Usuário " + nome + " cadastrado com sucesso!");
     }
 
-    // Método para buscar um usuário na rede social pelo nome para logar
     public Usuario logarUsuario(String nome, String senha) {
-        for (Usuario usuario : this.usuarios) { // Percorre a lista de usuários cadastrados
-            if (usuario.getNome().equals(nome) && usuario.getSenha().equals(senha)) { // Verifica se o nome do usuário é igual ao nome informado
+        for (Usuario usuario : this.usuarios) {
+            if (usuario.getNome().equals(nome) && usuario.getSenha().equals(senha)) {
                 System.out.println("Usuario logado com sucesso!");
-                return usuario; // Retorna o usuário encontrado
+                return usuario;
             }
         }
         System.out.println("Usuário não encontrado!");
-        return null;// Retorna null se não encontrar nenhum usuário com o nome informado
+        return null;
     }
 
     public Usuario getUsuario(String nome){

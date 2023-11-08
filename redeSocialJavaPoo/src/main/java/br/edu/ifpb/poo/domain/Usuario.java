@@ -5,21 +5,20 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-// Classe para representar um usuário da rede social
+
 public class Usuario implements Serializable {
-    // Atributos do usuário
+
     private String nome;
     private String senha;
-    private List<Postagem> postagens; // Lista de postagens do usuário
+    private List<Postagem> postagens;
 
     // Construtor do usuário
     public Usuario(String nome, String senha) {
         this.nome = nome;
         this.senha = senha;
-        this.postagens = new ArrayList<>(); // Inicializa a lista de postagens vazia
+        this.postagens = new ArrayList<>();
     }
 
-    // Métodos getters e setters dos atributos
     public String getNome() {
         return nome;
     }
@@ -28,15 +27,12 @@ public class Usuario implements Serializable {
         return senha;
     }
 
-
     public List<Postagem> getPostagens() {
         return this.postagens;
     }
-
-    // Método para fazer uma postagem na rede social
     public void fazerPostagem(String texto) {
-        Postagem postagem = new Postagem(this, texto); // Cria uma nova postagem com o usuário, o texto e os usuários marcados
-        this.postagens.add(postagem); // Adiciona a postagem à lista de postagens do usuário
+        Postagem postagem = new Postagem(this, texto);
+        this.postagens.add(postagem);
         System.out.println("Postagem criada com sucesso!");
     }
 

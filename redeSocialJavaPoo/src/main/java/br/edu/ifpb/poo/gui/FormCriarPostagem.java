@@ -35,11 +35,10 @@ public class FormCriarPostagem {
             @Override
             public void actionPerformed(ActionEvent e) {
                 user.fazerPostagem(conteudoPostText.getText());
+                new SucessMsgGUI("Postagem criada com sucesso!");
             }
         });
-
         criarPostagemFrame.add(criarPostPainel);
-
         criarPostagemFrame.setVisible(true);
     }
 }

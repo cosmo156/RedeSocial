@@ -4,8 +4,10 @@ import br.edu.ifpb.poo.domain.*;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 
 public class MenuUsuario {
     public MenuUsuario(Usuario user){
@@ -16,7 +18,6 @@ public class MenuUsuario {
 
         DefaultListModel<String> defaultListModel = new DefaultListModel<>();
         JButton criarPostagemButton = new JButton("Criar Postagem");
-        JButton interagirPostagensButton = new JButton("Interagir com Outras Postagens");
         JLabel minhaspostagensLabel = new JLabel("Minhas Postagens: ");
         JPanel jPanel = new JPanel();
 
@@ -33,18 +34,17 @@ public class MenuUsuario {
                 new FormCriarPostagem(user);
             }
         });
-
-
-        interagirPostagensButton.addActionListener(new ActionListener() {
+        jList.addMouseListener(new MouseAdapter() {
             @Override
-            public void actionPerformed(ActionEvent e) {
-                // Implemente a lógica para interagir com outras postagens aqui
-                JOptionPane.showMessageDialog(null, "Opção 'Interagir com Outras Postagens' selecionada");
+            public void mouseClicked(MouseEvent e) {
+                new SucessMsgGUI(jList.getSelectedValue());
             }
         });
+
+
         jPanel.setLayout(new BoxLayout(jPanel, BoxLayout.Y_AXIS));
         jPanel.add(criarPostagemButton);
-        jPanel.add(interagirPostagensButton);
+        jPanel.add(Box.createVerticalStrut(10));
         jPanel.add(minhaspostagensLabel);
         jPanel.add(jList);
         mainFrame.add(jPanel);

@@ -4,20 +4,19 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-// Classe para representar uma postagem na rede social
+
 public class Postagem implements Serializable {
     // Atributos da postagem
-    private Usuario autor; // Usuário que fez a postagem
-    private String texto; // Texto da postagem
-    private Curtida curtidas; // Número de curtidas de uma postagem
-    private List<Comentario> comentarios; // Lista de comentários da postagem
+    private Usuario autor;
+    private String texto;
+    private Curtida curtidas;
+    private List<Comentario> comentarios;
 
-    // Construtor da postagem
     public Postagem(Usuario autor, String texto) {
         this.autor = autor;
         this.texto = texto;
         this.curtidas = new Curtida();
-        this.comentarios = new ArrayList<>(); // Inicializa a lista de comentários vazia
+        this.comentarios = new ArrayList<>();
     }
 
     public String getTexto(){
@@ -37,16 +36,14 @@ public class Postagem implements Serializable {
         return comentarios;
     }
 
-    // Método para remover uma curtida da postagem
     public void removerCurtida() {
        this.curtidas.descurtir();
     }
 
-    // Método para adicionar um comentário à postagem
 
     public void adicionarComentario(String comentario) {
         Comentario comentario1 = new Comentario(this.autor, comentario);
-        this.comentarios.add(comentario1); // Adiciona o comentário à lista de comentários
+        this.comentarios.add(comentario1);
     }
 
     public String toString() {

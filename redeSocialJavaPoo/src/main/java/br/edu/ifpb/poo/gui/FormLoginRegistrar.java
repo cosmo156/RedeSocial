@@ -39,29 +39,39 @@ public class FormLoginRegistrar {
             public void actionPerformed(ActionEvent e) {
                 String username = usernameField.getText();
                 char[] password = passwordField.getPassword();
-                // Implemente a lógica de verificação do login aqui
-                Usuario user = adm.getUsuario(username);
-                if (user != null){
-                    new MenuUsuario(user);
+                if (adm.getUsuarios().isEmpty()){
+                    JOptionPane.showMessageDialog(null, "Nenhum usuario cadastrado!");
                 }
                 else {
-                    JOptionPane.showMessageDialog(null, "Usuario nao encontrado!");
+                    Usuario user = adm.getUsuario(username);
+                    if (user != null){
+                        new MenuUsuario(user);
+                    }
+                    else {
+                        new MsgErrorGui("Usuario nao encontrado!");
+                    }
                 }
-
             }
         });
-
         registerButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String username = usernameField.getText();
                 char[] password = passwordField.getPassword();
                 // Implemente a lógica de registro do usuário aqui
-                JOptionPane.showMessageDialog(null, "Registro: Username - " + username + ", Password - " + new String(password));
-                adm.cadastrarUsuario(username, new String(password));
+                if (username.isEmpty() || password.toString().isEmpty()){
+                   new MsgErrorGui("Os campos de Nome e senha nao podem ser vazios!");
+                }else {
+                    if (password.length <= 2|| username.length() <= 2){
+                        new MsgErrorGui("A senha e o nome deve conter pelo menos 3 caracteres!");
+                    }
+                    else {
+                        adm.cadastrarUsuario(username, new String(password));
+                        new SucessMsgGUI("O usuario " + username + " foi cadastrado com sucesso!");
+                    }
+                }
             }
         });
-
         frame.setVisible(true);
     }
 }
