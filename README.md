@@ -1,4 +1,6 @@
 # RedeSocial
 
-* Rede Social textual simples
-* Mini projeto de POO
+* O package RedeSocial é a primaira versão
+* O package RedeSocialRefatorada, são as classes refatoradas
+
+* Execute O arquivo 
