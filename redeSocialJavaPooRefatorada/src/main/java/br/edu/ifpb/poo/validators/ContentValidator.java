@@ -7,6 +7,6 @@ public class ContentValidator implements Validator<String> {
     @Override
     public boolean validate(String data) {
         new NonEmptyValidator().validate(data);
-        return data.length() < this.MIN_CARACT_NOME;
+        return data.length() >= this.MIN_CARACT_NOME;
     }
 }
