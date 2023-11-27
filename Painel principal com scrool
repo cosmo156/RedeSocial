@@ -1,0 +1,42 @@
+import javax.swing.*;
+import java.awt.*;
+
+public class Main {
+
+    public static void main(String[] args) {
+        // Criação do JFrame
+        JFrame janela = new JFrame("Painéis Azuis");
+        janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        janela.setSize(400, 600); // Defina o tamanho da janela conforme necessário
+        janela.setLayout(new BoxLayout(janela.getContentPane(), BoxLayout.Y_AXIS)); // Um abaixo do outro
+
+        // Criação do painel de conteúdo
+        JPanel painelDeConteudo = new JPanel();
+        painelDeConteudo.setLayout(new BoxLayout(painelDeConteudo, BoxLayout.Y_AXIS)); // Um abaixo do outro
+        painelDeConteudo.setBackground(Color.WHITE); // Fundo branco para separação
+
+        // Criação dos painéis
+        for (int i = 0; i < 20; i++) {
+            JPanel painel = new JPanel();
+            painel.setBackground(Color.BLUE); // Define o fundo como azul
+            painel.setPreferredSize(new Dimension(janela.getWidth(), (int) (janela.getHeight() * 0.2))); // Dimensões 100% por 20%
+            painel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10)); // Espaçamento preto
+
+            // Adiciona um JLabel com texto dentro do painel
+            JLabel texto = new JLabel("Painel " + (i + 1));
+            painel.add(texto);
+            JPanel pan = new JPanel();
+            pan.setBackground(Color.BLACK);
+            pan.setPreferredSize(new Dimension(janela.getWidth(), (int) (janela.getHeight() * 0.01))); // Dimensões 100% por 20%
+
+            painelDeConteudo.add(painel); // Adiciona o painel ao painel de conteúdo
+            painelDeConteudo.add(pan);
+        }
+
+        // Adiciona o painel de conteúdo a um JScrollPane
+        JScrollPane scrollPane = new JScrollPane(painelDeConteudo);
+        janela.add(scrollPane); // Adiciona o JScrollPane à janela
+
+        janela.setVisible(true); // Torna a janela visível
+    }
+}
