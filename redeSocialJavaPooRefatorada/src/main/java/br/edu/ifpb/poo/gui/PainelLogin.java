@@ -4,6 +4,9 @@
  */
 package br.edu.ifpb.poo.gui;
 
+import br.edu.ifpb.poo.repository.AdmUsuarioRepository;
+import br.edu.ifpb.poo.service.AdmUsuarioService;
+
 /**
  *
  * @author PCPC
@@ -47,7 +50,16 @@ public class PainelLogin extends javax.swing.JFrame {
         jButton1.setText("Login");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                String nome = jTextField1.getText();
+                char[] password = jPasswordField1.getPassword();
+                String senha = new String(password);
+                if (nome.length() < 3 || senha.length() < 3){
+                    new MsgErrorGui("O nome e a senha devem conter mais de 3 caracteres!");
+                }else {
+                    new SucessMsgGUI("nome: " + nome + " senha: " + new String(password));
+                    new PainelPrincipal().setVisible(true);
+                    setVisible(false);
+                }
             }
         });
 
@@ -101,11 +113,7 @@ public class PainelLogin extends javax.swing.JFrame {
         );
 
         pack();
-    }// </editor-fold>                        
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
-        // TODO add your handling code here:
-    }                                        
+    }// </editor-fold>
 
     /**
      * @param args the command line arguments
@@ -150,5 +158,6 @@ public class PainelLogin extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextField1;
+    private AdmUsuarioService admUsuarioService = new AdmUsuarioService(AdmUsuarioRepository.getInstance());
     // End of variables declaration                   
 }
