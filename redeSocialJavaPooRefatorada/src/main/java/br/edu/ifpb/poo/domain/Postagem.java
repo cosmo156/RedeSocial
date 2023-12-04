@@ -10,11 +10,13 @@ public class Postagem implements Serializable {
     private String texto;
     private Curtida curtidas;
     private List<Comentario> comentarios;
+    private Usuario author;
 
-    public Postagem(String texto) {
+    public Postagem(Usuario author, String texto) {
         this.texto = texto;
         this.curtidas = new Curtida();
         this.comentarios = new ArrayList<>();
+        this.author = author;
     }
 
     public String getTexto(){
@@ -25,6 +27,9 @@ public class Postagem implements Serializable {
         return curtidas.getNumeroCurtidas();
     }
 
+    public Usuario getAuthor() {
+        return this.author;
+    }
 
     public void curtir() {
         this.curtidas.curtir();

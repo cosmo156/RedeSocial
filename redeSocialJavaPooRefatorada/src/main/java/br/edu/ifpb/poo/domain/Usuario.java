@@ -40,7 +40,6 @@ public class Usuario implements Serializable {
         System.out.println("Postagem criada com sucesso!");
     }
 
-
     @Override
     public String toString() {
         return this.nome;
