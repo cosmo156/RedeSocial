@@ -10,11 +10,9 @@ import br.edu.ifpb.poo.validators.ContentValidator;
 import br.edu.ifpb.poo.validators.ValidationContext;
 
 public class CommentPostCommad implements Commad {
-    private Usuario user;
     private Postagem postagem;
 
-    public CommentPostCommad(Usuario user, Postagem postagem) {
-        this.user = user;
+    public CommentPostCommad(Postagem postagem) {
         this.postagem = postagem;
     }
 

@@ -40,7 +40,7 @@ public class MenuInteractUserCommad implements Commad {
             switch (opcao){
                 case 1 -> executor.executeCommad(new LikePostCommad(this.user, this.userPost));
                 case 2 -> executor.executeCommad(new RemoveLikePostCommad(this.user, this.userPost));
-                case 3 -> executor.executeCommad(new CommentPostCommad(this.user, this.userPost));
+                case 3 -> executor.executeCommad(new CommentPostCommad(this.userPost));
             }
         }while (opcao != 4);
     }
