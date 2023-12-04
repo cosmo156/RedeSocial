@@ -1,7 +1,6 @@
 package br.edu.ifpb.poo.commads.gui;
 
 import br.edu.ifpb.poo.adpter.Commad;
-import br.edu.ifpb.poo.gui.PainelCadastro;
 import br.edu.ifpb.poo.gui.PainelLogin;
 import br.edu.ifpb.poo.repository.AdmUsuarioRepository;
 import br.edu.ifpb.poo.service.AdmUsuarioService;
@@ -27,10 +26,8 @@ public class CreateUserGuiCommad implements Commad {
     @Override
     public void execute() {
         char[] senhaChar = senha.getPassword();
-        char[] senha2Char = senha2.getPassword();
         String nomeStr = nome.getText();
         String senhaStr = new String(senhaChar);
-        String senha2Str = new String(senha2Char);
 
         GuiTextValidator nomeValidator = new GuiTextValidator(new ContentValidator());
         GuiTextValidator senhaValidator = new GuiTextValidator(new ContentValidator());

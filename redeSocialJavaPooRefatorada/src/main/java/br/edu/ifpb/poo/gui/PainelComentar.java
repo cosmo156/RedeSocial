@@ -13,7 +13,7 @@ import javax.swing.*;
 public class PainelComentar extends javax.swing.JFrame {
     private Postagem post;
     private Usuario user;
-    AdmUsuarioService service = new AdmUsuarioService(AdmUsuarioRepository.getInstance());
+    private transient AdmUsuarioService service = new AdmUsuarioService(AdmUsuarioRepository.getInstance());
 
     public PainelComentar(Postagem post, Usuario user) {
         this.post = post;
@@ -24,16 +24,6 @@ public class PainelComentar extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">
     private void initComponents() {
-
-        jFrame1 = new javax.swing.JFrame();
-        jPanel2 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jButton1 = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
 
         setTitle("Painel de comentarios");
         setLocationRelativeTo(null);
@@ -58,11 +48,9 @@ public class PainelComentar extends javax.swing.JFrame {
         updateComentarios();
 
         jButton1.setText("Comentar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                new CommandExecutor().executeCommad(new CreateCommentGuiCommad(post, jTextArea1, user));
-                updateComentarios();
-            }
+        jButton1.addActionListener((java.awt.event.ActionEvent evt) -> {
+            new CommandExecutor().executeCommad(new CreateCommentGuiCommad(post, jTextArea1, user));
+            updateComentarios();
         });
 
         jScrollPane2.setViewportView(jList1);
@@ -126,14 +114,14 @@ public class PainelComentar extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify
-    private javax.swing.JButton jButton1;
-    private javax.swing.JFrame jFrame1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JList<Comentario> jList1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JButton jButton1 = new javax.swing.JButton();
+    private javax.swing.JFrame jFrame1 = new javax.swing.JFrame();
+    private javax.swing.JLabel jLabel1 = new javax.swing.JLabel();
+    private javax.swing.JLabel jLabel2 = new javax.swing.JLabel();
+    private javax.swing.JList<Comentario> jList1 = new javax.swing.JList<>();
+    private javax.swing.JPanel jPanel2 = new javax.swing.JPanel();
+    private javax.swing.JScrollPane jScrollPane1 = new javax.swing.JScrollPane();
+    private javax.swing.JScrollPane jScrollPane2 = new javax.swing.JScrollPane();
+    private javax.swing.JTextArea jTextArea1 = new javax.swing.JTextArea();
     // End of variables declaration
 }

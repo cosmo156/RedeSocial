@@ -6,12 +6,6 @@ package br.edu.ifpb.poo.gui;
 
 import br.edu.ifpb.poo.commads.CommandExecutor;
 import br.edu.ifpb.poo.commads.gui.CreateUserGuiCommad;
-import br.edu.ifpb.poo.repository.AdmUsuarioRepository;
-import br.edu.ifpb.poo.service.AdmUsuarioService;
-
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -27,7 +21,6 @@ public class PainelCadastro extends javax.swing.JFrame {
 
         jButton1 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
@@ -124,7 +117,6 @@ public class PainelCadastro extends javax.swing.JFrame {
 
     // Variables declaration - do not modify                     
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

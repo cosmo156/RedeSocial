@@ -18,7 +18,6 @@ public class RemoveLikePostCommad implements Commad {
     @Override
     public void execute() {
         AdmUsuarioService admUsuarioService = new AdmUsuarioService(AdmUsuarioRepository.getInstance());
-
         admUsuarioService.removerCurtida(this.user, this.postagem);
     }
 }

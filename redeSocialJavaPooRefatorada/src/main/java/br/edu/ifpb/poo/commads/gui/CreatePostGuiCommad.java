@@ -15,13 +15,10 @@ public class CreatePostGuiCommad implements Commad {
     private JTextArea jTextArea;
     private final AdmUsuarioService service = new AdmUsuarioService(AdmUsuarioRepository.getInstance());
 
-
-
     public CreatePostGuiCommad(Usuario user, JTextArea jTextArea){
         this.user = user;
         this.jTextArea = jTextArea;
     }
-
 
     @Override
     public void execute() {

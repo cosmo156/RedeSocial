@@ -8,15 +8,13 @@ import br.edu.ifpb.poo.repository.AdmUsuarioRepository;
 import br.edu.ifpb.poo.service.AdmUsuarioService;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 
 public class PainelPrincipal extends javax.swing.JFrame {
     private Usuario userLogado;
-    AdmUsuarioService service = new AdmUsuarioService(AdmUsuarioRepository.getInstance());
+    private transient AdmUsuarioService service = new AdmUsuarioService(AdmUsuarioRepository.getInstance());
 
     public PainelPrincipal(Usuario userLogado) {
         this.userLogado = userLogado;
@@ -27,17 +25,6 @@ public class PainelPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jList1 = new JList<>();
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         setLocationRelativeTo(null);
@@ -46,13 +33,10 @@ public class PainelPrincipal extends javax.swing.JFrame {
         updatePost();
 
         jButton1.setText("Criar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                new CommandExecutor().executeCommad(new CreatePostGuiCommad(userLogado, jTextArea1));
-                updatePost();
-            }
+        jButton1.addActionListener((java.awt.event.ActionEvent evt) -> {
+            new CommandExecutor().executeCommad(new CreatePostGuiCommad(userLogado, jTextArea1));
+            updatePost();
         });
-
 
         jList1.addMouseListener(new MouseAdapter() {
             @Override
@@ -61,20 +45,14 @@ public class PainelPrincipal extends javax.swing.JFrame {
                 JMenuItem jCurtir = new JMenuItem("Curtir");
                 JMenuItem jComnetar = new JMenuItem("Comentar");
                 JMenuItem jNumCurtidas = new JMenuItem("Curtidas: " + jList1.getSelectedValue().getCurtidas());
-                jCurtir.addActionListener(new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        Usuario userCurtir = jList1.getSelectedValue().getAuthor();
-                        service.curtir(userCurtir, jList1.getSelectedValue());
-                        new SucessMsgGUI("A postagem " + jList1.getSelectedValue().toString() + " curtida com sucesso!");
-                    }
+                jCurtir.addActionListener(ActionEvent -> {
+                    Usuario userCurtir = jList1.getSelectedValue().getAuthor();
+                    service.curtir(userCurtir, jList1.getSelectedValue());
+                    new SucessMsgGUI("A postagem " + jList1.getSelectedValue().toString() + " curtida com sucesso!");
                 });
-                jComnetar.addActionListener(new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        Usuario userComentar = jList1.getSelectedValue().getAuthor();
-                        new PainelComentar(jList1.getSelectedValue(), userComentar).setVisible(true);
-                    }
+                jComnetar.addActionListener(ActionEvent -> {
+                    Usuario userComentar = jList1.getSelectedValue().getAuthor();
+                    new PainelComentar(jList1.getSelectedValue(), userComentar).setVisible(true);
                 });
                 popupMenu.add(jCurtir);
                 popupMenu.add(jComnetar);
@@ -82,6 +60,9 @@ public class PainelPrincipal extends javax.swing.JFrame {
                 popupMenu.show(jList1, e.getX(), e.getY());
             }
         });
+
+
+
         jScrollPane2.setViewportView(jList1);
 
         jLabel1.setText("Todas as postagens registradas:");
@@ -160,15 +141,15 @@ public class PainelPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JList<Postagem> jList1;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JButton jButton1 = new JButton();
+    private javax.swing.JLabel jLabel1 = new JLabel();
+    private javax.swing.JLabel jLabel2 = new JLabel();
+    private javax.swing.JList<Postagem> jList1 = new JList<>();
+    private javax.swing.JMenu jMenu1 = new JMenu();
+    private javax.swing.JMenuBar jMenuBar1 = new JMenuBar();
+    private javax.swing.JPanel jPanel1 = new JPanel();
+    private javax.swing.JScrollPane jScrollPane1 = new JScrollPane();
+    private javax.swing.JScrollPane jScrollPane2 = new JScrollPane();
+    private javax.swing.JTextArea jTextArea1 = new JTextArea();
     // End of variables declaration
 }

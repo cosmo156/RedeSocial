@@ -2,7 +2,6 @@ package br.edu.ifpb.poo.commads.gui;
 
 import br.edu.ifpb.poo.adpter.Commad;
 import br.edu.ifpb.poo.domain.Usuario;
-import br.edu.ifpb.poo.gui.PainelLogin;
 import br.edu.ifpb.poo.gui.PainelPrincipal;
 import br.edu.ifpb.poo.repository.AdmUsuarioRepository;
 import br.edu.ifpb.poo.service.AdmUsuarioService;

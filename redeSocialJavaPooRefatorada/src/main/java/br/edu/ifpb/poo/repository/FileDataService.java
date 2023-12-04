@@ -9,16 +9,16 @@ import java.io.*;
 import java.util.List;
 
 public class FileDataService extends InMemoryDataService {
+    private String myField = "data.bin";
     public FileDataService() {
-        File data = new File("data.bin");
+        File data = new File(myField);
         if (data.exists()) {
-            try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("data.bin"))) {
+            try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(myField))) {
                 usuarios = (List<Usuario>) ois.readObject();
             } catch (IOException | ClassNotFoundException e) {
                 e.printStackTrace();
             }
         }
-
     }
 
     @Override

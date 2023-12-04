@@ -6,7 +6,6 @@ import java.util.List;
 
 
 public class Postagem implements Serializable {
-    // Atributos da postagem
     private String texto;
     private Curtida curtidas;
     private List<Comentario> comentarios;

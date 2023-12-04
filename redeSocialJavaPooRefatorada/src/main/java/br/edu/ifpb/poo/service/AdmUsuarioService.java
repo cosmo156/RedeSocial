@@ -5,10 +5,11 @@ import br.edu.ifpb.poo.domain.Postagem;
 import br.edu.ifpb.poo.domain.Usuario;
 import br.edu.ifpb.poo.repository.AdmUsuarioRepository;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class AdmUsuarioService {
-    private final AdmUsuarioRepository repository;
+public class AdmUsuarioService implements Serializable {
+    private final transient AdmUsuarioRepository repository;
 
     public AdmUsuarioService(AdmUsuarioRepository repository){
         this.repository = repository;

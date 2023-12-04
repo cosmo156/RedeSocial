@@ -4,7 +4,6 @@ package br.edu.ifpb.poo.domain;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 
 public class Usuario implements Serializable {
@@ -13,7 +12,6 @@ public class Usuario implements Serializable {
     private String senha;
     private List<Postagem> postagens;
 
-    // Construtor do usuário
     public Usuario(String nome, String senha) {
         this.nome = nome;
         this.senha = senha;
@@ -35,9 +33,9 @@ public class Usuario implements Serializable {
     public List<Postagem> getPostagens() {
         return this.postagens;
     }
+
     public void fazerPostagem(Postagem postagem) {
         this.postagens.add(postagem);
-        System.out.println("Postagem criada com sucesso!");
     }
 
     @Override
