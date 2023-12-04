@@ -34,9 +34,6 @@ public class AdmUsuarioRepository {
         return this.dataService.getAllUser();
     }
 
-    public void updateUser(Usuario user){
-        this.dataService.updateUser(user);
-    }
 
     public Usuario searchUser(String nome){
         return this.dataService.searchUser(nome);
@@ -46,8 +43,8 @@ public class AdmUsuarioRepository {
         return this.dataService.userExists(nome);
     }
 
-    public void removeUser(Usuario user){
-        this.dataService.removeUser(user);
+    public List<Postagem> getAllPost(){
+        return this.dataService.getAllPost();
     }
 
     public Usuario logarUsuario(String nome, String senha){

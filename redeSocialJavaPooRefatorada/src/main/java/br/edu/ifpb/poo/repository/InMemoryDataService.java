@@ -20,11 +20,6 @@ public class InMemoryDataService implements DataService {
         return this.usuarios;
     }
 
-    @Override
-    public void updateUser(Usuario user) {
-        int index = usuarios.indexOf(user);
-        usuarios.set(index, user);
-    }
 
     @Override
     public Usuario searchUser(String nome) {
@@ -39,11 +34,6 @@ public class InMemoryDataService implements DataService {
     @Override
     public boolean userExists(String nome) {
         return this.usuarios.stream().anyMatch(user -> user.getNome().contains(nome));
-    }
-
-    @Override
-    public void removeUser(Usuario user) {
-        this.usuarios.remove(user);
     }
 
     @Override
@@ -77,6 +67,15 @@ public class InMemoryDataService implements DataService {
     public void removerCurtida(Usuario user, Postagem postagem) {
         int index = user.getPostagens().indexOf(postagem);
         user.getPostagens().get(index).removerCurtida();
+    }
+
+    @Override
+    public List<Postagem> getAllPost() {
+        List<Postagem> allpost = new ArrayList<>();
+        for (Usuario user: getAllUser()){
+            allpost.addAll(user.getPostagens());
+        }
+        return allpost;
     }
 
     @Override

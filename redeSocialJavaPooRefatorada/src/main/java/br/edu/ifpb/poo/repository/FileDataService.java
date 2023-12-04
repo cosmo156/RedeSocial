@@ -27,17 +27,6 @@ public class FileDataService extends InMemoryDataService {
         write();
     }
 
-    @Override
-    public void updateUser(Usuario user) {
-        super.updateUser(user);
-        write();
-    }
-
-    @Override
-    public void removeUser(Usuario user) {
-        super.removeUser(user);
-        write();
-    }
 
     @Override
     public void fazerPostagem(Usuario user, Postagem postagem) {
