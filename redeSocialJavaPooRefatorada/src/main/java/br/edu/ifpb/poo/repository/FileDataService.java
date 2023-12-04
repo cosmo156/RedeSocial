@@ -1,6 +1,5 @@
 package br.edu.ifpb.poo.repository;
 
-
 import br.edu.ifpb.poo.domain.Comentario;
 import br.edu.ifpb.poo.domain.Postagem;
 import br.edu.ifpb.poo.domain.Usuario;
@@ -26,7 +25,6 @@ public class FileDataService extends InMemoryDataService {
         super.add(user);
         write();
     }
-
 
     @Override
     public void fazerPostagem(Usuario user, Postagem postagem) {
