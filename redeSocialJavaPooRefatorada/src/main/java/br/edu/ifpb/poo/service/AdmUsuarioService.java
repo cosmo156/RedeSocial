@@ -30,12 +30,8 @@ public class AdmUsuarioService {
         return repository.userExists(nome);
     }
 
-    public void updateUser(String nome, String senha){
-        repository.updateUser(new Usuario(nome , senha));
-    }
-
-    public void removeUser(Usuario user){
-        repository.removeUser(user);
+    public List<Postagem> getAllPost(){
+        return repository.getAllPost();
     }
 
     public Usuario logarUsuario(String nome, String senha){
