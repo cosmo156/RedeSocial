@@ -20,7 +20,7 @@ public class CreatePostCommad implements Commad {
         ValidationContext<String> strValidationContext = new ValidationContext<>(new ContentValidator());
         String conteudo = strValidationContext.getValidValue("Digite o conteudo: ", "A postagem não pode ser vazio e deve ser maior do que 2 caracteres!", String.class);
 
-        Postagem postagem = new Postagem(conteudo);
+        Postagem postagem = new Postagem(user, conteudo);
         admUsuarioService.fazerPostagem(this.user,postagem);
     }
 }

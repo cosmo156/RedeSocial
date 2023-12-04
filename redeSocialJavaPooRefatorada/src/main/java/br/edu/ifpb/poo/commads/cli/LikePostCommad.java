@@ -18,7 +18,7 @@ public class LikePostCommad implements Commad {
     @Override
     public void execute() {
         AdmUsuarioService admUsuarioService = new AdmUsuarioService(AdmUsuarioRepository.getInstance());
-
-        admUsuarioService.curtir(this.user, this.postagem);
+        Usuario userCurtir = this.postagem.getAuthor();
+        admUsuarioService.curtir(userCurtir, this.postagem);
     }
 }

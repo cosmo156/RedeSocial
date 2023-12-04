@@ -24,8 +24,9 @@ public class CommentPostCommad implements Commad {
         ValidationContext<String> strValidationContext = new ValidationContext<>(new ContentValidator());
         String conteudo = strValidationContext.getValidValue("Conteudo do comentário: ", "o comentário não pode ser vazio e deve ser maior do que 2 caracteres!", String.class);
 
+        Usuario userComentario = this.postagem.getAuthor();
         Comentario comentario = new Comentario(conteudo);
 
-        admUsuarioService.fazerComentario(this.user, this.postagem, comentario);
+        admUsuarioService.fazerComentario(userComentario, this.postagem, comentario);
     }
 }
